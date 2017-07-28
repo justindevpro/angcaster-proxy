@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const { apiKey, googApiKey } = require('../credentials');
+// const { apiKey, googApiKey } = require('../credentials');
+const apiKey =  process.env.API_KEY || require('../credentials').apiKey;
+const googApiKey = process.env.GOOG || require('../credentials').googApiKey;
 const base = 'https://api.darksky.net/forecast';
 const baseGeo = `https://maps.googleapis.com/maps/api/geocode/json?key=${googApiKey}&address=`;
 const baseRevGeo = `https://maps.googleapis.com/maps/api/geocode/json?key=${googApiKey}&latlng=`;
